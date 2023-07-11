@@ -7,6 +7,12 @@ const { ContextReplacementPlugin } = require('webpack')
 const glob = require('glob')
 const webpack = require('webpack')
 
+// const AMPLITUDE_API_KEY = {
+//   ALPHA: process.env.AMPLITUDE_API_KEY_ALPHA,
+//   DEVNET: process.env.AMPLITUDE_API_KEY_ALPHA,
+//   STAGING: process.env.AMPLITUDE_API_KEY_ALPHA,
+// }[process.env.AMPLITUDE_BUILD_ENV];
+
 function transpileViewScript(file) {
   return {
     entry: file,
@@ -168,7 +174,7 @@ const appJs =
       new webpack.DefinePlugin({
         'process.env.MIXPANEL_TOKEN': JSON.stringify(process.env.MIXPANEL_TOKEN),
         'process.env.MIXPANEL_URL': JSON.stringify(process.env.MIXPANEL_URL),
-        'process.env.AMPLITUDE_API_KEY': JSON.stringify(process.env.AMPLITUDE_API_KEY),
+        // 'process.env.AMPLITUDE_API_KEY': JSON.stringify(AMPLITUDE_API_KEY),
         'process.env.AMPLITUDE_URL': JSON.stringify(process.env.AMPLITUDE_URL)
       }),
       new webpack.ProvidePlugin({
